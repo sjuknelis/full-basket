@@ -21,7 +21,7 @@
       <div class="col" v-for="item in listingData.seeking.filter(item => item.goal > 0)" scope="col"><b>{{ item.name }}</b></div>
     </div>
     <div class="row" v-for="donation in listingData.recents">
-      <tdiv class="col">{{ donation.name }}</tdiv>
+      <div class="col">{{ donation.name }}</div>
       <div class="col" v-for="item in donation.donating.filter(item => itemHasGoal(item.name))">{{ item.donating }}</div>
     </div>
     <div class="row">

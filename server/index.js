@@ -12,7 +12,7 @@ const TEMPLATE = {
   "description": "",
   "seeking": [
     {
-      "name": "Canned Fruit,
+      "name": "Canned Fruit",
       "amount": 0,
       "goal": 0
     },
@@ -40,6 +40,21 @@ const TEMPLATE = {
       "name": "Wheat Products (inc. bread)",
       "amount": 0,
       "goal": 0
+    },
+    {
+      "name": "Cooking Oils",
+      "amount": 0,
+      "goal": 0
+    },
+    {
+      "name": "Herbs and Spices",
+      "amount": 0,
+      "goal": 0
+    },
+    {
+      "name": "Baby Food and Formula",
+      "amount": 0,
+      "goal": 0
     }
   ],
   "recents": [],
@@ -64,7 +79,8 @@ app.get("/listings",(request,response) => {
 });
 
 app.get("/listing",(request,response) => {
-  response.send(JSON.stringify(db[request.query.id]));
+  console.log(JSON.stringify(db[request.query.id],null,2))
+  response.send(JSON.stringify(db[request.query.id],null,2));
 });
 
 app.get("/donation",(request,response) => {

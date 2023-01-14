@@ -11,7 +11,7 @@
     </div>
   </nav>
   <br v-if="$route.name != 'home'" />
-  <RouterView />
+  <router-view></router-view>
   <br />
 </template>
 

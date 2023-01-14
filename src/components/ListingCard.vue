@@ -6,6 +6,7 @@
         <h4 class="card-title">{{ data.title }}</h4>
         <p class="card-text">
           {{ data.organizer }}, {{ data.address.city }}, {{ data.address.state }}<br />
+          <i v-if="star" class="fa-solid fa-star" style="color: gold"></i>
           Seeking {{ seeking.amount }}x {{ seeking.name }}
         </p>
       </div>
@@ -16,7 +17,7 @@
 <script setup>
 import { defineProps } from 'vue';
 
-defineProps(["id","data","seeking"]);
+defineProps(["id","data","seeking","star"]);
 </script>
 
 <style scoped>

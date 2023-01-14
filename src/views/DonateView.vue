@@ -28,7 +28,7 @@
       </div>
     </div>
     <hr />
-    <h4>2. Would you like to update your [donation] preferences now?</h4>
+    <h4>2. Would you like to update your donation preferences now?</h4>
     <div class="form-check">
       <input v-model="updateSelection" class="form-check-input" type="radio" name="updateRadio" id="updateRadio1" value="yes" checked>
       <label class="form-check-label" for="updateRadio1">
@@ -48,7 +48,7 @@
     <p>You can always update your donation preferences from the home page.</p>
     <hr />
     <h4>3. To what name would you like to credit this donation?</h4>
-    <p>This name will be listed on the [] website and potentially in {{ listingData.organizer }}'s publications.</p>
+    <p>This name will be listed on the Full Basket website and potentially in {{ listingData.organizer }}'s publications.</p>
     <div class="form-check">
       <input v-model="nameSelection" class="form-check-input" type="radio" name="nameRadio" id="nameRadio1" value="name" checked>
       <label class="form-check-label" for="nameRadio1">
@@ -88,7 +88,10 @@
     "Rice": "bowl-rice",
     "Meat": "drumstick-bite",
     "Fish": "fish",
-    "Wheat Products (inc. bread)": "wheat-awn"
+    "Wheat Products (inc. bread)": "wheat-awn",
+    "Cooking Oil": "bottle-droplet",
+    "Herbs and Spices": "mortar-pestle",
+    "Baby Food and Formula": "baby"
   };
 
   const listingData = ref({

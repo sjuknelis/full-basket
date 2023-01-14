@@ -1,6 +1,6 @@
 <template>
   <div id="bg-div">
-    <img id="bg" src="@/assets/background.jpg" />
+    <img id="bg" src="@/assets/background.png" />
     <div id="bg-text">
       <div id="bg-text-content">
         <h1>Ending hunger together.</h1>
@@ -39,7 +39,7 @@
     <h4>Recommended for you</h4>
     <div class="row">
       <div v-for="(item,index) in recommended" class="col-4">
-        <ListingCard :id="item.index" :data="item" :seeking="intersectionInLists(topThreeInList(item.seeking),topPreferences)" />
+        <ListingCard :id="item.index" :data="item" :seeking="intersectionInLists(topThreeInList(item.seeking),topPreferences)" :star="true" />
       </div>
     </div>
     <br />
@@ -62,7 +62,10 @@
     "Rice": "bowl-rice",
     "Meat": "drumstick-bite",
     "Fish": "fish",
-    "Wheat Products (inc. bread)": "wheat-awn"
+    "Wheat Products (inc. bread)": "wheat-awn",
+    "Cooking Oil": "bottle-droplet",
+    "Herbs and Spices": "mortar-pestle",
+    "Baby Food and Formula": "baby"
   };
 
   const listings = ref([]);
@@ -154,17 +157,19 @@
     top: 50%;
     transform: translateY(-50%);
     margin-left: 5vw;
+    font-size: 1.05em;
   }
   #bg-text-content h1 {
     font-weight: bold;
     text-decoration: underline;
+    font-size: 2.5em;
   }
   .donation-type-box {
     text-align: center;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
-  .donation-type-box:not(:nth-child(4)):not(:nth-child(5)):not(:nth-child(6)) {
+  .donation-type-box:not(:nth-child(7)):not(:nth-child(8)):not(:nth-child(9)) {
     border-bottom: 2px solid lightgray;
   }
   .donation-type-box:nth-child(3n + 2) {

@@ -37,16 +37,18 @@
         <ul>
           <li v-for="item in listingData.seeking.filter(item => item.amount > 0)">{{ item.amount }}x {{ item.name }}</li>
         </ul>
-        <br />
-        <b>Top donations to {{ listingData.organizer }}:</b>
-        <ul>
-          <li v-for="item in topFromRecents(listingData.recents)">{{ item.name }} donated {{ item.amount }} items</li>
-        </ul>
-        <br />
-        <b>Recent donations to {{ listingData.organizer }}:</b>
-        <ul>
-          <li v-for="item in listingData.recents.reverse().slice(0,10)">{{ item.name }} donated {{ item.amount }} items</li>
-        </ul>
+        <template v-if="listingData.recents.length > 0">
+          <br />
+          <b>Top donations to {{ listingData.organizer }}:</b>
+          <ul>
+            <li v-for="item in topFromRecents(listingData.recents)">{{ item.name }} donated {{ item.amount }} items</li>
+          </ul>
+          <!--<br />
+          <b>Recent donations to {{ listingData.organizer }}:</b>
+          <ul>
+            <li v-for="item in listingData.recents.slice(0,10)">{{ item.name }} donated {{ item.amount }} items</li>
+          </ul>-->
+        </template>
       </div>
     </div>
   </div>
@@ -101,7 +103,12 @@
 
   onMounted(async () => {
     const response = await fetch(`http://localhost:8080/listing?id=${route.params.id}`);
-    listingData.value = await response.json();
+    const text = await response.text();
+    console.log(text)
+    const obj = JSON.parse(text);
+    console.log(obj.recents)
+    listingData.value = JSON.parse(text);
+    console.log(listingData.value.recents)
   });
 </script>
 
